@@ -1,6 +1,6 @@
 import unittest
 import math
-from dodatak_A import OperationsManager
+from dodatak_A_fix import OperationsManager
 
 
 class TestDivisionMethods(unittest.TestCase):
