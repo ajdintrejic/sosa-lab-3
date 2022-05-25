@@ -10,7 +10,8 @@ class OperationsManager:
         try:
             self.a = float(self.a)
             self.b = float(self.b)
-            assert self.b != 0.
+            if self.b != 0.:
+                raise Exception('a')
         except:
             return float('nan')
 
