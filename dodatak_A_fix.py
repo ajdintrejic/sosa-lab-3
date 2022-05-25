@@ -1,5 +1,5 @@
 import getpass
-
+import bcrypt
 
 class OperationsManager:
     def __init__(self, a: float, b: float) -> None:
@@ -20,8 +20,15 @@ class OperationsManager:
 
 if __name__ == "__main__":
     user = input("Username: ")
-    password = getpass.getpass("Password: ")
-    if user != "root" or password != "123":
+    password = str.encode(getpass.getpass("Password: "))
+    hashed = b'$2b$12$a7NMd/tw/gjVRVmNw435WuS39swRtsILU1eYHPpJHU/z7H54HyPty'
+
+    if bcrypt.checkpw(password, hashed):
+        p = True
+    else:
+        p = False
+
+    if user != "root" or not p:
         print("Wrong username or password!")
         exit(0)
     else:
